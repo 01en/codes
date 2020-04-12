@@ -4,21 +4,30 @@
  */
 var moveZeroes = function (nums) {
   var c = 0;
-  for (var i = 0; i < nums.length;) {
-    var n = nums[i];
-    if (n === 0) {
+  var length = nums.length;
+  for (var i = 0; i < length; i++) {
+    if (nums[i] === 0) {
       c++;
-      nums.splice(i, 1);
-      i = 0;
-    } else {
-      i++;
     }
   }
-  for (var j = 0; j < c; j++) {
-    nums.push(0);
+
+  var arr = [];
+  for (var i = 0; i < length; i++) {
+    if (nums[i] !== 0) {
+      arr.push(nums[i]);
+    }
   }
+
+  for (var i = 0; i < c; i++) {
+    arr.push(0);
+  }
+
+  for (var i = 0; i < length; i++) {
+    nums[i] = arr[i];
+  }
+
   return nums;
 };
 
-console.log(moveZeroes([0, 1, 0, 3, 12]));
-// console.log(moveZeroes([0, 0, 1]));
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
+console.log(moveZeroes([0, 0, 1]));
