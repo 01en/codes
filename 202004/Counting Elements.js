@@ -25,4 +25,4 @@ var countElements = function (arr) {
   }
   return count;
 };
-console.log(countElements([4, 10, 11, 11, 1, 9, 6, 2, 4, 5, 8]));
+// console.log(countElements([4, 10, 11, 11, 1, 9, 6, 2, 4, 5, 8]));
