@@ -3,31 +3,20 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-  var c = 0;
-  var length = nums.length;
-  for (var i = 0; i < length; i++) {
-    if (nums[i] === 0) {
-      c++;
+  var lastNonZeroFoundAt = 0;
+  for (var i = 0; i < nums.length; i++) {
+    if (nums[i] != 0) {
+      nums[lastNonZeroFoundAt++] = nums[i];
     }
   }
 
-  var arr = [];
-  for (var i = 0; i < length; i++) {
-    if (nums[i] !== 0) {
-      arr.push(nums[i]);
-    }
-  }
-
-  for (var i = 0; i < c; i++) {
-    arr.push(0);
-  }
-
-  for (var i = 0; i < length; i++) {
-    nums[i] = arr[i];
+  console.log(lastNonZeroFoundAt);
+  for (var i = lastNonZeroFoundAt; i < nums.length; i++) {
+    nums[i] = 0;
   }
 
   return nums;
 };
 
-// console.log(moveZeroes([0, 1, 0, 3, 12]));
-console.log(moveZeroes([0, 0, 1]));
+console.log(moveZeroes([0, 1, 0, 3, 12]));
+// console.log(moveZeroes([0, 0, 1]));
